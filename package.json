@@ -8,6 +8,7 @@
     "start": "next start -p 3000",
     "db:up": "docker compose up -d",
     "db:ping": "tsx scripts/db_ping.ts",
+    "db:prune:abrogated": "tsx scripts/prune_abrogated.ts",
     "seed": "tsx scripts/seed.ts",
     "test:unit": "tsx tests/rag.test.ts",
     "test": "npm run test:unit && npm run test:seed",

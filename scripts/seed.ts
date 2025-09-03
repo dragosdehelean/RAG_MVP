@@ -385,6 +385,24 @@ function toPgVector(vec: number[]): string {
   return `[${vec.join(',')}]`;
 }
 
+// Detect abrogated/expired acts based on EUR-Lex page markers
+const NO_LONGER_IN_FORCE_MARKERS: RegExp[] = [
+  /No\s+longer\s+in\s+force/i,
+  /Ceased\s+to\s+be\s+in\s+force/i,
+  /Nu\s+mai\s+este\s+în\s+vigoare/i,
+  /Nu\s+mai\s+este\s+in\s+vigoare/i,
+  /abrogare\s+implicită/i,
+  /abrogat(ă)?/i,
+  /End\s+of\s+validity/i,
+];
+
+function isNoLongerInForce(html: string): { matched: boolean; endOfValidity?: string } {
+  const matched = NO_LONGER_IN_FORCE_MARKERS.some((re) => re.test(html));
+  if (!matched) return { matched: false };
+  const m = html.match(/Date of end of validity:\s*([0-9]{2}\/[0-9]{2}\/[0-9]{4})/i);
+  return { matched: true, endOfValidity: m?.[1] };
+}
+
 async function upsertDocument(celex: string, chunks: string[]) {
   // Replace strategy: delete existing rows for celex/doc_id and insert fresh chunks
   // First compute embeddings to keep transaction short.
@@ -397,8 +415,14 @@ async function upsertDocument(celex: string, chunks: string[]) {
   const client = await pool.connect();
   try {
     await client.query('BEGIN');
-    await client.query('DELETE FROM documents WHERE celex = $1 OR doc_id = $1', [celex]);
-    const sql = `INSERT INTO documents (celex, doc_id, chunk_id, content, embedding) VALUES ($1, $2, $3, $4, $5::vector)`;
+    const sql = `
+      INSERT INTO documents (celex, doc_id, chunk_id, content, embedding)
+      VALUES ($1, $2, $3, $4, $5::vector)
+      ON CONFLICT (celex, chunk_id) DO UPDATE
+      SET doc_id = EXCLUDED.doc_id,
+          content = EXCLUDED.content,
+          embedding = EXCLUDED.embedding
+    `;
     for (let i = 0; i < chunks.length; i++) {
       await client.query(sql, [celex, celex, i, chunks[i], embeddings[i]]);
     }
@@ -431,6 +455,17 @@ async function processItem(item: DiscItem, opts?: { noEmbed?: boolean }) {
     html = await res.text();
   }
   const tFetch = Date.now();
+  // Skip abrogated/expired acts
+  const abro = isNoLongerInForce(html);
+  if (abro.matched) {
+    console.log(`[Skip] ${item.celex} is no longer in force (end: ${abro.endOfValidity || 'n/a'}). Skipping import.`);
+    return {
+      celex: item.celex,
+      chunkCount: 0,
+      avgChunkLen: 0,
+      durations: { fetchMs: tFetch - t0, parseMs: 0, dbMs: 0, totalMs: tFetch - t0 }
+    };
+  }
   const tokens = extractMainTokens(html);
   const chunks = buildChunks(tokens, 800, 1000);
   const tParse = Date.now();

@@ -13,5 +13,8 @@ CREATE TABLE IF NOT EXISTS documents(
 CREATE INDEX IF NOT EXISTS idx_docs_vec
   ON documents USING ivfflat (embedding vector_cosine_ops) WITH (lists=100);
 
-ANALYZE documents;
+-- Ensure idempotent seeding: prevent duplicates per CELEX + chunk
+CREATE UNIQUE INDEX IF NOT EXISTS uq_docs_celex_chunk
+  ON documents (celex, chunk_id);
 
+ANALYZE documents;
