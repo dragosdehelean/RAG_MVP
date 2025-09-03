@@ -1,0 +1,35 @@
+--- DESCRIBE celex ---
+@prefix owl:	<http://www.w3.org/2002/07/owl#> .
+<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1>	owl:sameAs	<http://publications.europa.eu/resource/celex/32016R0679> .
+
+--- DESCRIBE cellar ---
+@prefix ns0:	<http://publications.europa.eu/ontology/cdm#> .
+@prefix ns1:	<http://publications.europa.eu/resource/cellar/> .
+ns1:d6c3a259-7a56-11e6-b076-01aa75ed71a1	ns0:work_cites_work	<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1> .
+ns1:d3aa19e5-5cac-11e7-954d-01aa75ed71a1	ns0:work_cites_work	<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1> .
+<http://publications.europa.eu/resource/cellar/1495c976-5d5a-11e7-954d-01aa75ed71a1>	ns0:work_cites_work	<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1> .
+<http://publications.europa.eu/resource/cellar/49fb611e-5cb0-11e7-954d-01aa75ed71a1>	ns0:work_cites_work	<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1> .
+<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1.0011>	ns0:expression_belongs_to_work	<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1> .
+<http://publications.europa.eu/resource/cellar/7cedf705-2329-11e6-86d0-01aa75ed71a1>	ns0:work_cites_work	<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1> .
+ns1:e614e681-9859-11e7-b92d-01aa75ed71a1	ns0:work_cites_work	<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1> .
+<http://publications.europa.eu/resource/cellar/8c6800cb-0fb6-11e7-8a35-01aa75ed71a1>	ns0:work_cites_work	<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1> .
+<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1.0009>	ns0:expression_belongs_to_work	<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1> .
+<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1.0002>	ns0:expression_belongs_to_work	<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1> .
+ns1:ac08b172-b253-11e7-837e-01aa75ed71a1	ns0:work_cites_work	<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1> .
+<http://publications.europa.eu/resource/cellar/9b871b38-3d20-11e7-a08e-01aa75ed71a1>	ns0:work_cites_work	<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1> .
+<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1.0014>	ns0:expression_belongs_to_work	<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1> .
+<http://publications.europa.eu/resource/cellar/186cfcb2-5d72-11e7-954d-01aa75ed71a1>	ns0:work_cites_work	<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1> .
+<http://publications.europa.eu/resource/cellar/2f44420c-c1e6-11e6-a6db-01aa75ed71a1>	ns0:work_cites_work	<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1> .
+<http://publications.europa.eu/resource/cellar/27fa9f33-a429-11e7-9ca9-01aa75ed71a1>	ns0:work_cites_work	<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1> .
+<http://publications.europa.eu/resource/cellar/7cbc770e-d809-11e6-ad7c-01aa75ed71a1>	ns0:work_cites_work	<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1> .
+<http://publications.europa.eu/resource/cellar/716da0f9-7bd1-11e6-b076-01aa75ed71a1>	ns0:work_cites_work	<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1> .
+ns1:b54bd5d0-d809-11e6-ad7c-01aa75ed71a1	ns0:work_cites_work	<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1> .
+ns1:ba0fbbec-d808-11e6-ad7c-01aa75ed71a1	ns0:work_cites_work	<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1> .
+<http://publications.europa.eu/resource/cellar/8697fedd-a362-11e7-8e7b-01aa75ed71a1>	ns0:work_cites_work	<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1> .
+<http://publications.europa.eu/resource/cel
+
+--- DESCRIBE expression ---
+@prefix ns0:	<http://publications.europa.eu/ontology/cdm#> .
+<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1.0011.01>	ns0:manifestation_manifests_expression	<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1.0011> .
+<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1.0011.02>	ns0:manifestation_manifests_expression	<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1.0011> .
+<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1.0011.03>	ns0:manifestation_manifests_expression	<http://publications.europa.eu/resource/cellar/3e485e15-11bd-11e6-ba9a-01aa75ed71a1.0011> .

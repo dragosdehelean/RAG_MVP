@@ -1,0 +1,20 @@
+# EN: Docker Compose for Postgres 16 with pgvector extension.
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: rag_eurlex_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ragdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./docker/init.sql:/docker-entrypoint-initdb.d/00-init.sql:ro
+
+volumes:
+  pgdata:
+    driver: local
+
