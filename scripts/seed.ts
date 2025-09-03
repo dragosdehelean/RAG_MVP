@@ -550,8 +550,8 @@ async function main() {
   console.log(`Avg chunk length: ${avgChunkLen} chars`);
   console.log(`Duration — discovery: ${((tDisc - tStart) / 1000).toFixed(2)}s, fetch+parse: ${((sumFetch + sumParse) / 1000).toFixed(2)}s, embed+db: ${(sumDb / 1000).toFixed(2)}s, overall: ${((tEnd - tStart) / 1000).toFixed(2)}s`);
 
-  // Mini report: first 3 CELEX with chunk counts
-  const brief = reports.slice(0, 3).map(r => `${r.celex}: ${r.chunkCount} chunks`).join('; ');
+  // Mini report: all CELEX with chunk counts
+  const brief = reports.map(r => `${r.celex}: ${r.chunkCount} chunks`).join('; ');
   console.log(`Mini report: ${brief || 'no documents processed'}`);
 }
 
